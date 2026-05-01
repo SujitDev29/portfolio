@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+/* Register Syne as the display font utility */
+@theme inline {
+  --font-display: var(--font-syne);
+}
+
+/* ─── Design tokens ─── */
+:root {
+  --dot-color: rgba(0, 0, 0, 0.045);
+  --glow-primary: rgba(249, 115, 22, 0.13);
+  --glow-secondary: rgba(249, 115, 22, 0.06);
+}
+
+html.dark {
+  --dot-color: rgba(249, 115, 22, 0.055);
+  --glow-primary: rgba(249, 115, 22, 0.22);
+  --glow-secondary: rgba(249, 115, 22, 0.1);
+}
+
+/* ─── Base ─── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-dm-sans, ui-sans-serif, system-ui, sans-serif);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(249, 115, 22, 0.28);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* ─── Keyframes ─── */
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Hero entrance ─── */
+.hero-item {
+  opacity: 0;
+  animation: hero-fade-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ─── Scroll reveal ─── */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-reveal][data-visible] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-reveal-delay="1"] { transition-delay: 0.07s; }
+[data-reveal-delay="2"] { transition-delay: 0.14s; }
+[data-reveal-delay="3"] { transition-delay: 0.21s; }
+[data-reveal-delay="4"] { transition-delay: 0.28s; }
+[data-reveal-delay="5"] { transition-delay: 0.35s; }
+[data-reveal-delay="6"] { transition-delay: 0.42s; }
+
+/* ─── Hero background ─── */
+.hero-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 0% 0%, var(--glow-primary) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 100% 100%, var(--glow-secondary) 0%, transparent 55%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Skill card glow on hover ─── */
+.skill-card:hover {
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.25), 0 4px 20px rgba(249, 115, 22, 0.08);
+}
+
+/* ─── Timeline dot pulse ─── */
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0   rgba(249, 115, 22, 0.45); }
+  70%  { box-shadow: 0 0 0 7px rgba(249, 115, 22, 0); }
+  100% { box-shadow: 0 0 0 0   rgba(249, 115, 22, 0); }
+}
+
+.timeline-pulse {
+  animation: pulse-ring 2.5s ease-out infinite;
+}
+
+/* ─── prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .hero-item {
+    animation: none;
+    opacity: 1;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .timeline-pulse {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
