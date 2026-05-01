@@ -39,7 +39,7 @@ const contactItems = [
   },
   {
     label: "GitHub",
-    value: "github.com/sujitgaikwad",
+    value: "github.com/SujitDev29",
     href: personalInfo.github,
     external: true,
     icon: (

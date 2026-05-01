@@ -16,7 +16,7 @@ export default function AnimatedCounter({
   const target = parsed ? parseInt(parsed[1], 10) : null;
   const suffix = parsed ? parsed[2] : "";
 
-  const [display, setDisplay] = useState(target !== null ? `0${suffix.replace(/^0+/, "")}` : value);
+  const [display, setDisplay] = useState(value);
 
   useEffect(() => {
     if (target === null) return;
@@ -31,6 +31,7 @@ export default function AnimatedCounter({
 
         const duration = 1200;
         const start = performance.now();
+        setDisplay(`0${suffix}`);
 
         const tick = (now: number) => {
           const p = Math.min((now - start) / duration, 1);

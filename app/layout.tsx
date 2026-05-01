@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     title,
     description,
     images: ["/og.png"],
-    creator: "@sujitgaikwad",
+    creator: "@SujitDev29",
   },
   robots: {
     index: true,

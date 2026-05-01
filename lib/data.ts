@@ -48,10 +48,10 @@ export const personalInfo: PersonalInfo = {
   name: "Sujit Gaikwad",
   title: "React Native & Full Stack Developer",
   location: "Pune, India",
-  email: "sujitgaikwad029@gmail.com",
+  email: "sujit.g@octogle.com",
   phone: "+91 9699378637",
   linkedin: "https://linkedin.com/in/sujit-gaikwad",
-  github: "https://github.com/sujitgaikwad",
+  github: "https://github.com/SujitDev29",
   specializations: [
     "Real-time UX",
     "Offline-first systems",
@@ -393,13 +393,6 @@ export const projects: Project[] = [
 }`,
         },
       },
-      relatedContent: [
-        {
-          title: "Cross-platform component vocabularies (notes)",
-          url: "https://github.com/sujitgaikwad",
-          type: "blog",
-        },
-      ],
       takeaways: [
         "A shared design language across React Native and React.js compresses the surface area you have to maintain.",
         "AI-assisted iteration is most useful at the edges — copy, polish, and edge cases — not at the architectural core.",
@@ -535,18 +528,6 @@ export function applyReceipt(messages: Msg[], id: string, status: Status) {
 }`,
         },
       },
-      relatedContent: [
-        {
-          title: "Reconnect-first messaging (write-up)",
-          url: "https://github.com/sujitgaikwad",
-          type: "blog",
-        },
-        {
-          title: "Workchat shared component vocabulary",
-          url: "https://github.com/sujitgaikwad",
-          type: "oss",
-        },
-      ],
       takeaways: [
         "Real-time UX lives or dies on reconnect logic — get optimistic state and retry semantics right before you decorate the UI.",
         "WebRTC permission UX is its own product surface; treating it as plumbing leads to silent first-call failures that you only catch in support tickets.",
@@ -658,13 +639,6 @@ export function applyReceipt(messages: Msg[], id: string, status: Status) {
 }`,
         },
       },
-      relatedContent: [
-        {
-          title: "Mobile-browser ergonomics for field tools (notes)",
-          url: "https://github.com/sujitgaikwad",
-          type: "blog",
-        },
-      ],
       takeaways: [
         "Tools for non-desktop users have to win on mobile-browser ergonomics first; everything else is secondary.",
         "Map integrations are easy to demo and hard to ship — geofence accuracy and battery cost are the real engineering problem.",
@@ -794,18 +768,6 @@ export function dispatchVoice(utterance: string, confidence: number, taskId: str
 }`,
         },
       },
-      relatedContent: [
-        {
-          title: "Voice as an input on the warehouse floor (notes)",
-          url: "https://github.com/sujitgaikwad",
-          type: "blog",
-        },
-        {
-          title: "Offline-first Redux Toolkit patterns",
-          url: "https://github.com/sujitgaikwad",
-          type: "oss",
-        },
-      ],
       takeaways: [
         "Voice as an input is only useful when the recognition model and the state machine behind it are both forgiving — partial matches matter more than perfect transcription.",
         "Offline-first state is non-negotiable for floor-ops apps; treat connectivity loss as the default, not the exception.",
@@ -909,13 +871,6 @@ export function dispatchVoice(utterance: string, confidence: number, taskId: str
 />`,
         },
       },
-      relatedContent: [
-        {
-          title: "Designing for low-literacy users (notes)",
-          url: "https://github.com/sujitgaikwad",
-          type: "blog",
-        },
-      ],
       takeaways: [
         "Designing for low-literacy users forces clarity that benefits every other user too.",
         "On entry-level Android hardware, list virtualisation and bundle size dominate the user experience — features come second.",
@@ -1028,13 +983,6 @@ async function scheduleSync(o: LocalOrder) {
 }`,
         },
       },
-      relatedContent: [
-        {
-          title: "Idempotency keys for offline-first apps (notes)",
-          url: "https://github.com/sujitgaikwad",
-          type: "blog",
-        },
-      ],
       takeaways: [
         "Idempotency keys are the cheapest insurance you can buy against network-induced duplicates.",
         "Local-first UX feels faster even when the underlying network is the same — the perception is the product.",

@@ -27,8 +27,9 @@ export default function Hero() {
             className="hero-item text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mb-6"
             style={{ animationDelay: "0.5s" }}
           >
-            Building cross-platform mobile and web experiences with 4+ years of
-            hands-on experience in React Native, Redux, Firebase, and REST APIs.
+            React Native, Redux Toolkit, and Firebase — focused on offline-first
+            sync, real-time UX, and the unglamorous middle layer that holds a
+            cross-platform product together.
           </p>
 
           <div

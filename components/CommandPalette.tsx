@@ -115,7 +115,7 @@ export default function CommandPalette() {
       {
         id: "action-github",
         label: "Open GitHub",
-        hint: "github.com/sujitgaikwad",
+        hint: "github.com/SujitDev29",
         group: "Actions",
         keywords: "github source code repos",
         perform: () => window.open(personalInfo.github, "_blank", "noopener,noreferrer"),
