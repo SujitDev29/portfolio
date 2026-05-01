@@ -76,9 +76,13 @@ export default function Projects() {
               <div className="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                 {group.projects.map((project, i) => {
                   const cs = project.caseStudy;
-                  const isLive =
-                    cs?.status === "Live" || cs?.status === "In Production";
                   const headlineMetrics = cs?.metrics?.slice(0, 2) ?? [];
+                  const accessLabel =
+                    project.access === "public"
+                      ? "Public"
+                      : project.access === "internal"
+                        ? "Internal"
+                        : "Closed source";
                   return (
                   <article
                     key={project.name}
@@ -98,24 +102,12 @@ export default function Projects() {
                         </h4>
                       </div>
                       <div className="flex flex-col items-end gap-1 shrink-0">
-                        <span className="text-xs text-gray-600 dark:text-gray-300 bg-gray-200 dark:bg-gray-800 px-2 py-0.5 rounded whitespace-nowrap">
+                        <span className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display whitespace-nowrap">
                           {project.type}
                         </span>
-                        {cs?.status && (
-                          <span
-                            className={`inline-flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5 rounded-full font-display ${
-                              isLive
-                                ? "bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-900/60"
-                                : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700"
-                            }`}
-                          >
-                            <span
-                              aria-hidden="true"
-                              className={`w-1.5 h-1.5 rounded-full ${isLive ? "bg-emerald-500" : "bg-gray-400"}`}
-                            />
-                            {cs.status}
-                          </span>
-                        )}
+                        <span className="text-xs font-medium text-gray-500 dark:text-gray-500 font-display whitespace-nowrap">
+                          {accessLabel}
+                        </span>
                       </div>
                     </div>
 
@@ -133,7 +125,7 @@ export default function Projects() {
                             <div className="text-sm font-semibold text-orange-500 dark:text-orange-400 font-display leading-tight">
                               {m.value}
                             </div>
-                            <div className="text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-400 mt-0.5 truncate">
+                            <div className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-400 mt-0.5 truncate">
                               {m.label}
                             </div>
                           </div>
@@ -185,8 +177,8 @@ export default function Projects() {
                             >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                width="15"
-                                height="15"
+                                width="16"
+                                height="16"
                                 viewBox="0 0 24 24"
                                 fill="none"
                                 stroke="currentColor"

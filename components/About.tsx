@@ -1,10 +1,18 @@
-import { summary, achievements } from "@/lib/data";
+import { summary } from "@/lib/data";
 import { getRevealDelay } from "@/lib/utils";
-import AnimatedCounter from "./AnimatedCounter";
+
+const stats = [
+  { value: "4+", label: "Years shipping" },
+  { value: "6", label: "Apps in production" },
+  { value: "−30%", label: "Floor task time" },
+];
 
 export default function About() {
   return (
-    <section id="about" className="bg-gray-50 dark:bg-gray-900 py-24 transition-colors duration-300">
+    <section
+      id="about"
+      className="bg-gray-50 dark:bg-gray-900 py-24 transition-colors duration-300"
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading label="About Me" />
 
@@ -16,42 +24,57 @@ export default function About() {
           </div>
 
           <div className="space-y-6">
-            <div
+            <figure
               data-reveal
               data-reveal-delay="2"
               className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700"
             >
-              <h3 className="text-xs font-semibold text-gray-900 dark:text-white uppercase tracking-widest mb-4 font-display">
-                Achievement
-              </h3>
-              <ul className="space-y-3">
-                {achievements.map((a, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400">
-                    <span className="mt-0.5 text-orange-500 dark:text-orange-400 flex-shrink-0" aria-hidden="true">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </span>
-                    {a}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <div className="flex items-center gap-2 mb-3 text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  className="text-orange-500 dark:text-orange-400"
+                >
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
+                Recognition
+              </div>
+              <blockquote className="text-sm text-gray-700 dark:text-gray-200 leading-relaxed">
+                Awarded{" "}
+                <span className="font-semibold text-gray-900 dark:text-white">
+                  &ldquo;Best Employee of the Year&rdquo;
+                </span>{" "}
+                at Stepron Technologies in 2023 for the audio-response system
+                that cut floor task time by 30%.
+              </blockquote>
+              <figcaption className="mt-3 text-xs uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
+                Stepron Technologies · 2023
+              </figcaption>
+            </figure>
 
             <div className="grid grid-cols-3 gap-4">
-              {[
-                { value: "4+", label: "Years Experience" },
-                { value: "6+", label: "Projects Delivered" },
-                { value: "3", label: "Companies" },
-              ].map((stat, i) => (
+              {stats.map((stat, i) => (
                 <div
                   key={stat.label}
                   data-reveal
                   data-reveal-delay={getRevealDelay(i + 2)}
                   className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 text-center"
                 >
-                  <AnimatedCounter value={stat.value} className="text-2xl font-bold text-orange-500 dark:text-orange-400 font-display" />
-                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">{stat.label}</p>
+                  <span className="text-2xl font-bold text-gray-900 dark:text-white font-display">
+                    {stat.value}
+                  </span>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 mt-1 leading-snug">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>

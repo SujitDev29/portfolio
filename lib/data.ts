@@ -3,10 +3,10 @@ export type PersonalInfo = {
   title: string;
   location: string;
   email: string;
-  phone: string;
   linkedin: string;
   github: string;
-  specializations: string[];
+  availableForHire: boolean;
+  headline: string;
 };
 
 export type SkillLevel = "expert" | "proficient" | "learning";
@@ -40,24 +40,21 @@ export type ExperienceJob = {
   scope: string;
   teamSize?: number;
   keyAchievements?: ExperienceAchievement[];
+  highlight?: string;
   projects: ExperienceProject[];
   tech: string[];
 };
 
 export const personalInfo: PersonalInfo = {
   name: "Sujit Gaikwad",
-  title: "React Native & Full Stack Developer",
+  title: "React Native Developer",
   location: "Pune, India",
-  email: "sujit.g@octogle.com",
-  phone: "+91 9699378637",
+  email: "sujitdev29@gmail.com",
   linkedin: "https://linkedin.com/in/sujit-gaikwad",
   github: "https://github.com/SujitDev29",
-  specializations: [
-    "Real-time UX",
-    "Offline-first systems",
-    "Mobile-first UX",
-    "Cross-platform parity",
-  ],
+  availableForHire: true,
+  headline:
+    "Cross-platform mobile + web engineer focused on offline-first sync, real-time UX, and the unglamorous middle layer that holds a product together across iOS, Android, and the web.",
 };
 
 export const summary =
@@ -130,6 +127,8 @@ export const experience: ExperienceJob[] = [
       { metric: "Tools replaced", value: "2" },
       { metric: "Msg latency", value: "<250ms" },
     ],
+    highlight:
+      "Workchat replaced two third-party tools internally; same release branch ships across iOS, Android, and web each cycle.",
     projects: [
       {
         name: "Artista",
@@ -157,6 +156,8 @@ export const experience: ExperienceJob[] = [
       { metric: "Best Employee", value: "2023" },
       { metric: "Products", value: "2" },
     ],
+    highlight:
+      "Awarded 'Best Employee of the Year' in 2023 for the audio-response system that cut floor task time by 30%.",
     projects: [
       {
         name: "Build ID",
@@ -182,7 +183,10 @@ export const experience: ExperienceJob[] = [
     keyAchievements: [
       { metric: "Order duplicates", value: "≈0" },
       { metric: "Apps shipped", value: "2" },
+      { metric: "Min device RAM", value: "1GB" },
     ],
+    highlight:
+      "Validated on 1GB-RAM Android devices; offline-first sync engine reduced order duplicates to near zero on flaky connections.",
     projects: [
       {
         name: "Dairy Point of View",
@@ -261,6 +265,8 @@ export type CaseStudy = {
   takeaways: string[];
 };
 
+export type ProjectAccess = "private" | "internal" | "public";
+
 export type Project = {
   slug: string;
   name: string;
@@ -268,6 +274,8 @@ export type Project = {
   type: string;
   description: string;
   tech: string[];
+  access: ProjectAccess;
+  accessNote?: string;
   github?: string;
   demo?: string;
   caseStudy?: CaseStudy;
@@ -282,6 +290,8 @@ export const projects: Project[] = [
     description:
       "Travel platform enabling users to create accounts, explore destinations, and book customized tours.",
     tech: ["React Native", "React.js", "Claude"],
+    access: "private",
+    accessNote: "Closed-source product",
     caseStudy: {
       status: "In Production",
       period: "Sep 2025 – Present",
@@ -407,6 +417,8 @@ export const projects: Project[] = [
     description:
       "Professional communication app with real-time chat, voice/video calls, and secure data uploads.",
     tech: ["React Native", "React.js", "WebRTC", "REST APIs"],
+    access: "private",
+    accessNote: "Closed-source product",
     caseStudy: {
       status: "In Production",
       period: "Sep 2025 – Present",
@@ -543,6 +555,8 @@ export function applyReceipt(messages: Msg[], id: string, status: Status) {
     description:
       "Construction industry solution with timesheet tracking, expense management, and Google Maps integration.",
     tech: ["React.js", "Google Maps API", "REST APIs"],
+    access: "internal",
+    accessNote: "Internal client tool",
     caseStudy: {
       status: "In Production",
       period: "Nov 2022 – Sep 2025",
@@ -653,6 +667,8 @@ export function applyReceipt(messages: Msg[], id: string, status: Status) {
     description:
       "Internal operations platform with an audio response system that reduced task time by 30%.",
     tech: ["React Native", "Redux Toolkit", "Firebase", "React.js"],
+    access: "internal",
+    accessNote: "Internal client tool",
     caseStudy: {
       status: "In Production",
       period: "Nov 2022 – Sep 2025",
@@ -783,6 +799,8 @@ export function dispatchVoice(utterance: string, confidence: number, taskId: str
     description:
       "Mobile app to streamline milk collection workflows and veterinary task assignments.",
     tech: ["React Native", "Redux Toolkit", "REST APIs"],
+    access: "private",
+    accessNote: "Field-ops product · closed source",
     caseStudy: {
       status: "In Production",
       period: "Oct 2021 – Nov 2022",
@@ -885,6 +903,8 @@ export function dispatchVoice(utterance: string, confidence: number, taskId: str
     description:
       "Synchronized local storage data to the server for seamless online order management.",
     tech: ["React Native", "Redux Toolkit", "AsyncStorage"],
+    access: "private",
+    accessNote: "Vendor app · closed source",
     caseStudy: {
       status: "In Production",
       period: "Oct 2021 – Nov 2022",

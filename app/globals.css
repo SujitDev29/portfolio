@@ -9,13 +9,11 @@
 
 /* ─── Design tokens ─── */
 :root {
-  --dot-color: rgba(0, 0, 0, 0.045);
   --glow-primary: rgba(249, 115, 22, 0.13);
   --glow-secondary: rgba(249, 115, 22, 0.06);
 }
 
 html.dark {
-  --dot-color: rgba(249, 115, 22, 0.055);
   --glow-primary: rgba(249, 115, 22, 0.22);
   --glow-secondary: rgba(249, 115, 22, 0.1);
 }
@@ -97,16 +95,6 @@ body {
   background:
     radial-gradient(ellipse 70% 55% at 0% 0%, var(--glow-primary) 0%, transparent 55%),
     radial-gradient(ellipse 40% 30% at 100% 100%, var(--glow-secondary) 0%, transparent 55%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, var(--dot-color) 1px, transparent 1px);
-  background-size: 28px 28px;
   pointer-events: none;
   z-index: 0;
 }

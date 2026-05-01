@@ -10,12 +10,9 @@ const ThemeContext = createContext<{ theme: Theme; toggle: () => void }>({
 });
 
 function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+  if (typeof window === "undefined") return "dark";
   const stored = localStorage.getItem("theme") as Theme | null;
-  const preferred = window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
-  return stored ?? preferred;
+  return stored ?? "dark";
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {

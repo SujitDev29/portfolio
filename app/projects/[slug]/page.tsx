@@ -32,13 +32,11 @@ export async function generateMetadata({
       url: `${siteUrl}/projects/${project.slug}`,
       title,
       description,
-      images: [{ url: "/og.png", width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: ["/og.png"],
     },
   };
 }
@@ -63,8 +61,8 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -80,7 +78,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
           </Link>
 
           <header className="mt-8" data-reveal>
-            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] font-display">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-widest font-display">
               <span className="text-orange-500 dark:text-orange-400">
                 {project.company}
               </span>
@@ -88,15 +86,11 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
               <span className="text-gray-600 dark:text-gray-400">
                 {project.type}
               </span>
-              {cs?.status && (
+              {project.accessNote && (
                 <>
                   <span className="text-gray-400 dark:text-gray-600">·</span>
-                  <span className="inline-flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400">
-                    <span
-                      aria-hidden="true"
-                      className="w-1.5 h-1.5 rounded-full bg-emerald-500"
-                    />
-                    {cs.status}
+                  <span className="text-gray-500 dark:text-gray-500 normal-case tracking-normal font-medium">
+                    {project.accessNote}
                   </span>
                 </>
               )}
@@ -140,8 +134,8 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="none"
                       stroke="currentColor"
@@ -166,8 +160,8 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      width="14"
-                      height="14"
+                      width="16"
+                      height="16"
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       aria-hidden="true"
@@ -230,7 +224,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
                   <div className="overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-800">
                     <table className="w-full text-left text-sm">
                       <thead className="bg-gray-50 dark:bg-gray-900">
-                        <tr className="text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
+                        <tr className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
                           <th className="py-3 px-4 font-semibold">Metric</th>
                           <th className="py-3 px-4 font-semibold">Before</th>
                           <th className="py-3 px-4 font-semibold">After</th>
@@ -409,12 +403,12 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
                         data-reveal-delay={getRevealDelay(2)}
                         className="rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-950 dark:bg-black overflow-hidden"
                       >
-                        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800 text-[10px] uppercase tracking-widest font-display text-gray-400">
+                        <div className="flex items-center justify-between px-4 py-2 border-b border-gray-800 text-xs uppercase tracking-widest font-display text-gray-400">
                           <span>
                             {cs.technicalChallenge.codeSnippet.language}
                           </span>
                         </div>
-                        <pre className="overflow-x-auto px-4 py-4 text-xs sm:text-[13px] leading-relaxed text-gray-100">
+                        <pre className="overflow-x-auto px-4 py-4 text-xs sm:text-sm leading-relaxed text-gray-100">
                           <code className="font-mono">
                             {cs.technicalChallenge.codeSnippet.code}
                           </code>
@@ -446,7 +440,7 @@ export default async function CaseStudyPage({ params }: { params: Params }) {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-orange-300 dark:hover:border-orange-700 hover:text-orange-500 dark:hover:text-orange-400 text-sm text-gray-700 dark:text-gray-300 transition-colors"
                         >
-                          <span className="text-[10px] uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
+                          <span className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
                             {r.type}
                           </span>
                           <span>{r.title}</span>

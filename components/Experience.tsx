@@ -52,6 +52,30 @@ export default function Experience() {
                     {job.scope}
                   </p>
 
+                  {job.keyAchievements && job.keyAchievements.length > 0 && (
+                    <dl className="mt-5 grid grid-cols-3 gap-3">
+                      {job.keyAchievements.map((a) => (
+                        <div
+                          key={a.metric}
+                          className="rounded-lg border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/40 px-3 py-2"
+                        >
+                          <dt className="text-xs uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
+                            {a.metric}
+                          </dt>
+                          <dd className="mt-0.5 text-base font-bold text-gray-900 dark:text-white font-display leading-tight">
+                            {a.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+
+                  {job.highlight && (
+                    <p className="mt-4 text-sm text-gray-700 dark:text-gray-300 leading-relaxed border-l-2 border-orange-300 dark:border-orange-700/70 pl-3 italic">
+                      {job.highlight}
+                    </p>
+                  )}
+
                   <div className="mt-4 space-y-3">
                     {job.projects.map((project) => (
                       <div
@@ -59,7 +83,7 @@ export default function Experience() {
                         className="flex items-start gap-3"
                       >
                         <span
-                          className="mt-1 text-orange-500 dark:text-orange-400 flex-shrink-0"
+                          className="mt-1 text-gray-400 dark:text-gray-600 flex-shrink-0"
                           aria-hidden="true"
                         >
                           <svg
@@ -90,7 +114,7 @@ export default function Experience() {
                     {job.tech.map((t) => (
                       <span
                         key={t}
-                        className="text-xs px-2 py-0.5 bg-orange-50 dark:bg-orange-950/30 text-orange-700 dark:text-orange-300 border border-orange-200 dark:border-orange-900/60 rounded"
+                        className="text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 border border-gray-200 dark:border-gray-700 rounded"
                       >
                         {t}
                       </span>

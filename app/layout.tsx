@@ -6,10 +6,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ScrollObserver from "@/components/ScrollObserver";
 import ScrollProgress from "@/components/ScrollProgress";
-import CursorGlow from "@/components/CursorGlow";
 import CommandPalette from "@/components/CommandPalette";
 import { personalInfo } from "@/lib/data";
-import { siteUrl } from "@/lib/site";
+import { siteUrl, withBasePath } from "@/lib/site";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -25,9 +24,9 @@ const dmSans = DM_Sans({
   display: "swap",
 });
 
-const title = `${personalInfo.name} — ${personalInfo.title}`;
+const title = `${personalInfo.title} — ${personalInfo.name}`;
 const description =
-  "Portfolio of Sujit Gaikwad, a React Native and Full Stack Developer with 4+ years of experience building cross-platform mobile and web applications.";
+  "React Native developer with 4+ years shipping cross-platform mobile and web apps — focused on offline-first sync, real-time UX, and the unglamorous middle layer that holds a product together across iOS, Android, and web.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -42,13 +41,13 @@ export const metadata: Metadata = {
   keywords: [
     "Sujit Gaikwad",
     "React Native Developer",
+    "Mobile Developer",
     "Full Stack Developer",
     "Next.js",
     "TypeScript",
     "Firebase",
     "React.js",
     "Pune",
-    "Mobile Developer",
   ],
   alternates: {
     canonical: "/",
@@ -60,21 +59,11 @@ export const metadata: Metadata = {
     description,
     siteName: `${personalInfo.name} Portfolio`,
     locale: "en_US",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/og.png"],
-    creator: "@SujitDev29",
   },
   robots: {
     index: true,
@@ -87,8 +76,16 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    icon: [
+      { url: withBasePath("/icon"), type: "image/png", sizes: "32x32" },
+    ],
+    apple: [
+      {
+        url: withBasePath("/apple-icon"),
+        type: "image/png",
+        sizes: "180x180",
+      },
+    ],
   },
   category: "technology",
 };
@@ -110,14 +107,13 @@ const personJsonLd = {
   jobTitle: personalInfo.title,
   url: siteUrl,
   email: `mailto:${personalInfo.email}`,
-  telephone: personalInfo.phone,
   address: {
     "@type": "PostalAddress",
     addressLocality: "Pune",
     addressRegion: "Maharashtra",
     addressCountry: "IN",
   },
-  sameAs: [personalInfo.linkedin],
+  sameAs: [personalInfo.linkedin, personalInfo.github],
   knowsAbout: [
     "React Native",
     "React.js",
@@ -145,7 +141,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var s=localStorage.getItem('theme'),p=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';if((s||p)==='dark')document.documentElement.classList.add('dark');})();`,
+            __html: `(function(){var s=localStorage.getItem('theme');var t=s==='light'?'light':'dark';if(t==='dark')document.documentElement.classList.add('dark');})();`,
           }}
         />
         <script
@@ -156,7 +152,6 @@ export default function RootLayout({
       <body className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-white antialiased">
         <ThemeProvider>
           <ScrollProgress />
-          <CursorGlow />
           <Navbar />
           {children}
           <Footer />

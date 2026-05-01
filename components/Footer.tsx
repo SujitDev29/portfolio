@@ -48,7 +48,7 @@ export default function Footer() {
           . All rights reserved.
         </p>
 
-        <ul className="flex items-center gap-1 order-first sm:order-none">
+        <ul className="flex items-center gap-1">
           {socials.map((s) => (
             <li key={s.label}>
               <a
@@ -63,8 +63,6 @@ export default function Footer() {
             </li>
           ))}
         </ul>
-
-        <p className="text-xs">Built with Next.js &amp; Tailwind CSS</p>
       </div>
     </footer>
   );

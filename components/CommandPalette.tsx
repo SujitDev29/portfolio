@@ -259,7 +259,7 @@ export default function CommandPalette() {
             autoComplete="off"
             spellCheck={false}
           />
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 text-[10px] font-medium px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded text-gray-500 dark:text-gray-400 font-display">
+          <kbd className="hidden sm:inline-flex items-center gap-0.5 text-xs font-medium px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded text-gray-500 dark:text-gray-400 font-display">
             ESC
           </kbd>
         </div>
@@ -276,7 +276,7 @@ export default function CommandPalette() {
           ) : (
             grouped.map(([group, list]) => (
               <div key={group} className="mb-2 last:mb-0">
-                <div className="px-4 pt-2 pb-1 text-[10px] font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
+                <div className="px-4 pt-2 pb-1 text-xs font-semibold uppercase tracking-widest text-gray-500 dark:text-gray-500 font-display">
                   {group}
                 </div>
                 {list.map((item) => {
@@ -319,7 +319,7 @@ export default function CommandPalette() {
           )}
         </div>
 
-        <div className="flex items-center justify-between gap-3 px-4 py-2 border-t border-gray-200 dark:border-gray-800 text-[11px] text-gray-500 dark:text-gray-500 font-display">
+        <div className="flex items-center justify-between gap-3 px-4 py-2 border-t border-gray-200 dark:border-gray-800 text-xs text-gray-500 dark:text-gray-500 font-display">
           <div className="flex items-center gap-3">
             <span className="inline-flex items-center gap-1">
               <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded">↑</kbd>

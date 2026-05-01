@@ -9,7 +9,7 @@ export default function NotFound() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-white dark:bg-gray-950 px-6">
       <div className="max-w-md text-center">
-        <p className="text-xs font-semibold tracking-[0.22em] uppercase text-orange-500 dark:text-orange-400 font-display">
+        <p className="text-xs font-semibold tracking-widest uppercase text-orange-500 dark:text-orange-400 font-display">
           404
         </p>
         <h1 className="mt-4 text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white tracking-tight font-display">
