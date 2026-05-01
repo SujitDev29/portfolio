@@ -97,27 +97,6 @@ export default function Experience() {
                     ))}
                   </div>
 
-                  {job.keyAchievements && job.keyAchievements.length > 0 && (
-                    <div
-                      className={`mt-5 grid grid-cols-2 gap-3 ${
-                        job.keyAchievements.length >= 3 ? "sm:grid-cols-3" : ""
-                      }`}
-                    >
-                      {job.keyAchievements.map((a) => (
-                        <div
-                          key={a.metric}
-                          className="bg-orange-50/40 dark:bg-orange-950/20 border border-orange-100 dark:border-orange-900/40 rounded-lg px-3 py-2"
-                        >
-                          <div className="text-base font-bold text-orange-600 dark:text-orange-400 font-display leading-tight">
-                            {a.value}
-                          </div>
-                          <div className="text-[10px] uppercase tracking-widest text-gray-600 dark:text-gray-400 mt-0.5">
-                            {a.metric}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
                 </div>
               </div>
             ))}
